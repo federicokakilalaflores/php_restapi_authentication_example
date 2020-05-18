@@ -1,39 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta name="author" content="Federico Flores Jr.">
+	<meta name="description" content="Rest api authentication using JWT.">
+	<meta name="keywords" content="REST, RESTapi, JWT, Authentication">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>Index Page</title>
 </head>
 <body>
+	<header class="header">
+		<nav class="navbar">
+			<a href="" class="nav-logo">MLS</a>
+			<ul class="nav-list">
+				<li><a href="">Home</a></li>
+				<li><a href="">About</a></li>
+				<li><a href="">Login</a></li>
+			</ul>
+		</nav>
+	</header>
 
-<script type="text/javascript">
-		
-	function init(){
-
-		let data = {
-			lastname: "Doe",
-			firstname: "John",
-			email: "johndoe@example.com",
-			password: "testlang" 
-		};
-
-		var xhttp = new XMLHttpRequest();
-
-		xhttp.onreadystatechange = function(){
-
-			if(xhttp.status == 200 && xhttp.readyState == 4){
-				console.log( JSON.parse( this.responseText ) );
-			}
-
-		}
-
-		xhttp.open('POST', 'api/create_user.php', true);
-		xhttp.setRequestHeader('Content-Type', 'application/json');
-		xhttp.send( JSON.stringify( data ) ); 
-
-	}
-
-	init();
-
-</script>
+<script src="app.js"></script>
 </body>
 </html>

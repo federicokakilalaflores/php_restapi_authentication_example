@@ -31,6 +31,9 @@
 			$this->password = htmlspecialchars( strip_tags( $this->password ) );
 			$this->created = htmlspecialchars( strip_tags( $this->created ) );
 
+			// HASH PASSWORD USING BCRYPT ALGO
+			$this->password = password_hash($this->password, PASSWORD_BCRYPT);
+
 			$stmt->bindParam(':lastname', $this->lastname);
 			$stmt->bindParam(':firstname', $this->firstname);
 			$stmt->bindParam(':email', $this->email);

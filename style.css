@@ -1,0 +1,60 @@
+
+/* style default */
+
+* {
+	box-sizing: border-box; 
+}
+
+body {
+	margin:0;
+	padding: 0;
+	font-family: arial, helvetica, sans-serif;
+}
+
+
+header, nav, figure, aside, footer, article, section {
+	display: block;
+}
+
+
+/* style navbar */
+
+nav.navbar .nav-logo{
+	font-weight: 900;
+	color: white;
+	text-decoration: none;
+	font-size: 1.5rem;
+	letter-spacing: 4px;
+}
+
+nav.navbar{
+	max-width: 100%;
+	background-color: #555;
+	margin: 0;
+	padding: 0 4rem;
+	height: 60px;
+	display: flex;
+	align-items: center;
+}
+
+nav.navbar ul.nav-list{
+	margin: 0;
+	list-style-type: none;
+	display: flex;
+}
+
+nav.navbar ul.nav-list li{
+	
+}
+
+nav.navbar ul.nav-list li a{
+	color: #ccc;
+	text-decoration: none;
+	padding: 5px 7px;
+}
+
+nav.navbar ul.nav-list li a:hover{
+	color: white;
+}
+
+

@@ -7,7 +7,8 @@
 	<meta name="keywords" content="REST, RESTapi, JWT, Authentication">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="vendor/fontawesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<title>Index Page</title>
 </head>
 <body>
@@ -22,6 +23,7 @@
 		</nav>
 	</header>
 
-<script src="app.js"></script>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
 		public $firstname;
 		public $email;
 		public $password;
-		public $created;
+		public $created; 
 
 
 		public function __construct($conn){
@@ -47,6 +47,38 @@
 			$this->showSqlError($stmt);
 			return false;
 
+		}
+		
+
+		public function isEmailExist(){
+
+			$query = "SELECT * FROM " . $this->tbl_name . 
+			" WHERE email=? LIMIT 0,1";
+
+			$stmt = $this->conn->prepare( $query );
+
+			$this->email = htmlspecialchars( strip_tags( $this->email ) );
+
+			$stmt->bindParam(1, $this->email);
+
+			$stmt->execute();
+
+			if( $stmt->rowCount() > 0 ) {
+
+				$row = $stmt->fetch(); 
+
+				$this->id = $row['id']; 
+				$this->lastname = $row['lastname'];
+				$this->firstname = $row['firstname'];
+				$this->password = $row['password'];
+				$this->created = $row['created'];
+
+				return true;
+
+			}
+
+			return false;
+		
 		}
 
 

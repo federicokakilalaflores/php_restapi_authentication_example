@@ -23,6 +23,10 @@
 		</nav>
 	</header>
 
+	<div class="container">
+		<h2>content here...</h2>
+	</div>
+
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="assets/js/app.js"></script>
 </body>

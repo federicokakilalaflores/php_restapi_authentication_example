@@ -2,8 +2,8 @@
 	// HEADERS
 	header( "Access-Control-Allow-Origin: http://localhost/backend-exercises/
 	php_restapi_authentication_with_JWT/" );
-	header( "Content-Type: application/json; CHARSET=UTF=8" );
-	header( "Access-Control-Allow-Methods: POST" );
+	header( "Content-Type: application/json; CHARSET=UTF-8" );
+	header( "Access-Control-Allow-Methods: POST" ); 
 	header( "Access-Control-Max-Age: 3600" );
 	header( "Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, 
 	Authorization, X-Requested-With" );

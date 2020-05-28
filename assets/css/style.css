@@ -1,4 +1,17 @@
 
+/* variables */
+:root{
+	--primary-color: #1aa3ff;
+	--muted-color: #777;
+	--muted-white-color: #ddd;
+	--danger-color: #ff3333;
+	--warning-color: #ff9900;
+	--success-color: #00ff55; 
+	--info-color: #80ccff;
+}
+	
+
+
 /* style default */
 
 * {
@@ -17,10 +30,65 @@ header, nav, figure, aside, footer, article, section {
 	display: block;
 }
 
-div.container{
+.container{
 	max-width: 960px;
 	margin: 0 auto;
 	padding: 0 10px;
+}
+
+hr{
+	color: #ddd;
+	margin-bottom: 1.5rem;
+}
+
+
+/* asset style */
+
+.btn{
+	padding: 8px 12px;
+	border: 0; 
+	border-radius: 3px; 
+}
+
+.btn.btn-primary{
+	background-color: var(--primary-color);
+	color: var(--muted-white-color);
+}
+
+.btn.btn-success{
+	background-color: var(--success-color);
+	color: var(--muted-white-color);
+}
+
+.btn.btn-danger{
+	background-color: var(--danger-color);
+	color: var(--muted-white-color);
+}
+
+.btn.btn-warning{
+	background-color: var(--warning-color);
+	color: var(--muted-white-color);
+}
+
+.btn.btn-info{
+	background-color: var(--info-color);
+	color: var(--muted-color);
+}
+
+.input-group{
+	margin-bottom: 1rem;
+}
+
+.input-group label{
+	color: var(--muted-color);
+}
+
+.input-group .input-field{
+	width: 100%;
+	border: 1px solid lightgrey;
+	padding: 7px 8px;
+	border-radius: 3px;
+	margin: 5px 0;
 }
 
 
@@ -63,5 +131,20 @@ nav.navbar ul.nav-list li a{
 nav.navbar ul.nav-list li a:hover{
 	color: white;
 }
+
+
+/* main and section */
+
+#main{
+	margin: 2rem 0;
+}
+
+#content{
+	width: 80%;
+	margin: auto;
+	padding: 1.5rem;
+}
+
+
 
 

@@ -48,6 +48,42 @@
 			return false;
 
 		}
+
+
+		public function update(){
+
+			$query = "UPDATE " . $this->tbl_name . 
+			" SET lastname = :lastname,
+			firstname = :firstname,
+			email = :email,
+			password = :password
+			WHERE id = :id";
+
+			$stmt = $this->conn->prepare( $query );
+
+			$this->id = htmlspecialchars( strip_tags( $this->id ));
+			$this->lastname = htmlspecialchars( strip_tags( $this->lastname ));
+			$this->firstname = htmlspecialchars( strip_tags( $this->firstname ));
+			$this->email = htmlspecialchars( strip_tags( $this->email ));
+			$this->password = htmlspecialchars( strip_tags( $this->password ));
+
+			// HASH PASSWORD USING BCRYPT ALGO
+			$this->password = password_hash($this->password, PASSWORD_BCRYPT);
+
+			$stmt->bindParam(':id', $this->id, PDO::PARAM_INT);
+			$stmt->bindParam(':lastname', $this->lastname);
+			$stmt->bindParam(':firstname', $this->firstname);
+			$stmt->bindParam(':email', $this->email);
+			$stmt->bindParam(':password', $this->password);
+
+			if( $stmt->execute() ){
+				return true;
+			}
+
+			$this->showSqlError($stmt);
+			return false;
+
+		}
 		
 
 		public function isEmailExist(){

@@ -1,23 +1,48 @@
-function init(){
+$(document).ready(function(){
 
-		let data = {
-			jwt: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9leGFtcGxlLm9yZyIsImF1ZCI6Imh0dHA6XC9cL2V4YW1wbGUuY29tIiwiaWF0IjoxMzU2OTk5NTI0LCJuYmYiOjEzNTcwMDAwMDAsImRhdGEiOnsiaWQiOjMsImxhc3RuYW1lIjoiRG9lIiwiZmlyc3RuYW1lIjoiSm9obiIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSJ9fQ.ZMgDCOJh_vbQ1Xtm_wS1jWaO3mKJZp2tynjh_mKSdCg"
-		};
+	// when signup link clicked
+	$(document).on('click', '#signup', function(ev){
+		ev.preventDefault();
 
-		var xhttp = new XMLHttpRequest();  
+		let html = `
+			<div id="message">
+				
+			</div>
+			<h2>Sign up</h2>
+			<hr />
+			<form id="signup-form">
+				<div class="input-group">
+					<label for="firstname">Firstname</label>
+					<input type="text" name="firstname" class="input-field" id="firstname">		
+				</div>		
+				<div class="input-group">
+					<label for="lastname">Lastname</label>
+					<input type="text" name="lastname" class="input-field" id="lastname">		
+				</div>
+				<div class="input-group">
+					<label for="email">Email</label>
+					<input type="text" name="email" class="input-field" id="email">		
+				</div>	
+				<div class="input-group">
+					<label for="password">Password</label>
+					<input type="password" name="password" class="input-field" id="password">		
+				</div>	
+				<button type="submit" class="btn btn-primary" id="signup-btn">Signup</button> 		
+			</form>
+		`;
 
-		xhttp.onreadystatechange = function(){
+		$('#content').html( html );
+	});
 
-			if(xhttp.status == 200 && xhttp.readyState == 4){
-				console.log( JSON.parse( this.responseText ) ); 
-			}
 
-		}
+	// when signup form submitted
+	$(document).on('submit', '#signup-form', function(ev){
+		ev.preventDefault();
 
-		xhttp.open('POST', 'api/validate_token.php', true);
-		xhttp.setRequestHeader('Content-Type', 'application/json');
-		xhttp.send( JSON.stringify( data ) ); 
+		let signupForm = $(this);
 
-}
+		
 
-	init(); 
+	});
+
+});

@@ -16,16 +16,22 @@
 		<nav class="navbar">
 			<a href="" class="nav-logo">MLS</a>
 			<ul class="nav-list">
-				<li><a href="">Home</a></li>
-				<li><a href="">About</a></li>
-				<li><a href="">Login</a></li>
+				<li><a href="#" id="home"><i class="fa fa-home"></i> Home</a></li>
+				<li><a href="#" id="update_account"><i class="fa fa-edit"></i> Account</a></li>
+				<li><a href="#" id="logout"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
+				<li><a href="#" id="login"><i class="fa fa-sign-in-alt"></i> Login</a></li>
+				<li><a href="#" id="signup"><i class="fa fa-user-plus"></i> Signup</a></li>
 			</ul>
-		</nav>
+		</nav> 
 	</header>
 
-	<div class="container">
-		<h2>content here...</h2>
-	</div>
+	<main id="main">
+		<section class="container">
+			<div id="content">
+	
+			</div>
+		</section>
+	</main>
 
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="assets/js/app.js"></script>

@@ -6,8 +6,8 @@
 	--muted-white-color: #ddd;
 	--danger-color: #ff3333;
 	--warning-color: #ff9900;
-	--success-color: #00ff55; 
-	--info-color: #80ccff;
+	--success-color: #00cc44; 
+	--info-color: #99d6ff;
 }
 	
 
@@ -44,6 +44,7 @@ hr{
 
 /* asset style */
 
+/* buttons */
 .btn{
 	padding: 8px 12px;
 	border: 0; 
@@ -89,6 +90,29 @@ hr{
 	padding: 7px 8px;
 	border-radius: 3px;
 	margin: 5px 0;
+}
+
+/*alert box*/
+.alert{
+	width: 100%;
+	padding: 15px 10px;
+	background-color: #eee;
+	color: var(--muted-color);
+}
+
+.alert.alert-success{
+	color: var(--muted-white-color);
+	background-color: var(--success-color);
+}
+
+.alert.alert-danger{
+	color: var(--muted-white-color);
+	background-color: var(--danger-color);
+}
+
+.alert.alert-warning{
+	color: var(--muted-white-color);
+	background-color: var(--warning-color);
 }
 
 
@@ -143,6 +167,23 @@ nav.navbar ul.nav-list li a:hover{
 	width: 80%;
 	margin: auto;
 	padding: 1.5rem;
+}
+
+/* card */
+.card{
+	padding: 0;
+	border-radius: 8px;
+	background-color: #eee;
+	margin: 1rem 0;
+}
+
+.card .card-header, .card .card-body{
+	padding: 8px 15px;
+}
+
+.card .card-header{
+	background-color: var(--info-color);
+	text-transform: capitalize;
 }
 
 

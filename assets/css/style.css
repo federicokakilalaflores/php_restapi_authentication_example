@@ -115,6 +115,11 @@ hr{
 	background-color: var(--warning-color);
 }
 
+.alert.alert-info{
+	color: var(--muted-color);
+	background-color: var(--info-color);
+}
+
 
 /* style navbar */
 

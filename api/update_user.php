@@ -28,7 +28,7 @@
 	$userObj = new User($conn);
 
 	// DECODE DATA FROM A CLIENT SIDE
-	$data = json_decode( file_get_contents("php://input") );
+	$data = json_decode( file_get_contents( "php://input" ) );
 
 	// JWT - JSON WEB TOKEN 
 	$jwt = isset($data->jwt) ? $data->jwt : "";

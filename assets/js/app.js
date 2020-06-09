@@ -65,12 +65,23 @@ $(document).ready(function(){
 		showHomePage(ev); 
 	});
 
+	$(document).on('click', '#update_account', function(ev){
+		showUpdateAccountForm(ev);
+	});
+
 	$(document).on('click', '#signup', function(ev){
 		showSignupForm(ev);
 	});
 
 	$(document).on('click', '#login', function(ev){
 		showLoginForm(ev);
+	});
+
+	$(document).on('click', '#logout', function(ev){
+		showLoginForm(ev)
+		$('#message').html( 
+			'<div class="alert alert-info">You are now logged out.</div>'  
+		);  
 	});
 
 	showLoggedOutMenu();
@@ -128,9 +139,39 @@ $(document).ready(function(){
 					'<div class="alert alert-danger">Unable to signup.</div>' 
 				);
 			} 
-
 		});
 		                                                                                                           
+	});
+
+
+	$(document).on('submit', '#update-account-form', function(ev){
+		ev.preventDefault();
+
+		let updateform = $(this);
+		let jwt = getCookie('jwt');
+		var formData = updateform.serializeObject();
+		formData.jwt = jwt; 
+
+		$.ajax({
+			url: 'api/update_user.php',
+			type: 'POST',
+			dataType: 'json',
+			contentType: 'application/json',
+			data: JSON.stringify( formData ),   	
+			success: function(result){
+				$('#message').html( 
+					'<div class="alert alert-success">Save changes successfully.</div>' 
+				); 
+				setCookie('jwt', result.jwt, 1);
+			},
+			error: function(xhr, status, err){
+				$('#message').html( 
+					'<div class="alert alert-danger">Unable to save your changes.</div>' 
+				);
+			}
+		});
+
+
 	});
 
 
@@ -146,19 +187,19 @@ $(document).ready(function(){
 			<form id="signup-form">
 				<div class="input-group">
 					<label for="firstname">Firstname</label>
-					<input type="text" name="firstname" class="input-field" id="firstname">		
+					<input type="text" name="firstname" class="input-field" id="firstname" required>		
 				</div>		
 				<div class="input-group">
 					<label for="lastname">Lastname</label>
-					<input type="text" name="lastname" class="input-field" id="lastname">		
+					<input type="text" name="lastname" class="input-field" id="lastname" required>		
 				</div>
 				<div class="input-group">
 					<label for="email">Email</label>
-					<input type="text" name="email" class="input-field" id="email">		
+					<input type="text" name="email" class="input-field" id="email" required>		
 				</div>	
 				<div class="input-group">
 					<label for="password">Password</label>
-					<input type="password" name="password" class="input-field" id="password">		
+					<input type="password" name="password" class="input-field" id="password" required>		
 				</div>	
 				<button type="submit" class="btn btn-primary" id="signup-btn">Signup</button> 		
 			</form>
@@ -227,12 +268,67 @@ $(document).ready(function(){
   			showLoggedInMenu(); 
 
  		}).fail(function(res){
+
  			showLoginForm(ev);
  			$('#message').html( 
 				'<div class="alert alert-danger">Please Login to access the homepage.</div>' 
 			);
+
  		});
 
+	}
+
+	function showUpdateAccountForm(ev){ 
+		ev.preventDefault(); 
+
+		let jwt = getCookie('jwt'); 
+
+		$.post(
+			'api/validate_token.php',
+			JSON.stringify({jwt: jwt})
+		).done(function(res){    
+			let html = ` 
+				<div id="message"></div> 
+				<h2>My Account</h2>
+				<hr />
+				<form id="update-account-form">
+					<div class="input-group">
+						<label for="firstname">Firstname</label>
+						<input type="text" name="firstname" class="input-field" id="firstname"
+						value="${res.data.firstname}" required>		
+					</div>		
+					<div class="input-group">
+						<label for="lastname">Lastname</label>
+						<input type="text" name="lastname" class="input-field" id="lastname"
+						value="${res.data.lastname}" required>		
+					</div>
+					<div class="input-group">
+						<label for="email">Email</label>
+						<input type="text" name="email" class="input-field" id="email"
+						value="${res.data.email}" required>		
+					</div>	
+					<div class="input-group">
+						<label for="password">Password</label>
+						<input type="password" name="password" class="input-field" id="password"
+						required>		
+					</div>	   
+					<button type="submit" class="btn btn-primary" id="update-btn">Save changes</button> 		
+				</form> 
+			`;
+
+		$('#content').html( html );  
+		showLoggedInMenu();  
+
+		}).fail(function(){
+
+			showLoginForm(ev);
+ 			$('#message').html( 
+				'<div class="alert alert-danger">Please Login to access the homepage.</div>' 
+			);
+
+		});
+
+ 	
 	}
 
 
